@@ -3071,7 +3071,7 @@ input, select, textarea {
 		/* Header */
 		    .hmain {
 
-				padding: 6em 3em 3em 3em;
+				/*padding: 6em 3em 3em 3em;*/
 				background-image: url("images/overlay.png"), url("../../images/tree2.jpg");
 				width: 30%;
 			}
@@ -3106,7 +3106,7 @@ input, select, textarea {
 		/* Main */
 
 			#main {
-				margin-left: 30%;
+				/*margin-left: 30%;*/
 				max-width: none;
 				padding: 6em 3em 3em 3em;
 				width: calc(100% - 30%);
