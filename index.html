@@ -23,15 +23,17 @@
 							<h2>Measuring and Improving BERT's Mathematical Abilities by Predicting the Order of Reasoning</h2>
 						</header>
 						<div class="row">
-						<div style="width:59%">
-							<h4><a href="https://piotrpiekos.github.io">Piotr Piękos</a><sup>1</sup>, <a href="http://www.mimuw.edu.pl/~henrykm">Henryk Michalewski</a><sup>1,2</sup>, <a href="http://www.mateuszmalinowski.com/">Mateusz Malinowski</a><sup>3</sup><br /></h4>
-						    <p><sup>1</sup>University of Warsaw, <sup>2</sup>Google, <sup>3</sup>DeepMind
-						</p>
-						</div>
-						<ul class="actions" style="margin-left:5%">
-							<li><a href="https://arxiv.org/abs/2106.03921" class="button">arXiv</a></li>
-							<li><a href="https://aclanthology.org/2021.acl-short.49/" class="button">ACL</a></li>
-							<li><a href="poster.pdf" class="button">Poster</a></li>
+							<div style="width:50%">
+							   <h4><a href="https://piotrpiekos.github.io">Piotr Piękos</a><sup>1</sup>, <a href="http://www.mimuw.edu.pl/~henrykm">Henryk Michalewski</a><sup>1,2</sup>, <a href="http://www.mateuszmalinowski.com/">Mateusz Malinowski</a><sup>3</sup><br /></h4>
+						       <p><sup>1</sup>University of Warsaw, <sup>2</sup>Google, <sup>3</sup>DeepMind</p>
+							</div>
+							<div class="align-right" style="width: 49%; max-width: 49%">
+								<ul class="actions" >
+									<li><a href="https://aclanthology.org/2021.acl-short.49/" class="button">ACL</a></li>
+									<li><a href="https://arxiv.org/abs/2106.03921" class="button">arXiv</a></li>
+									<li><a href="poster.pdf" class="button">Poster</a>
+								</li>
+							</div>
 						</ul>
 						</div>
 					</section>
@@ -43,7 +45,7 @@
 				</div>
 				<!-- Two -->
 					<section id="two" class="centered">
-						<img src="images/language_models_math.png" class="centered" style="width:70%; min-width: 350px" title="math in language models">
+						<img src="images/language_models_math.png" class="centered" style="width: 100%; max-width: 1000px" title="math in language models">
 						<p>Have you ever tried to do mathematics with pre-trained language models? It turns out that even the most basic questions can be very challenging for them. A simple question requiring basic addition or other elementary operation can bamboozle an otherwise very well prepared model but don't trust us,  <a href="https://transformer.huggingface.co/">try it yourself.</a><br \>
 							We would, however, expect such models to possess some mathematical abilities. As an example language model to investigate, we choose BERT. We scrutinize its mathematical abilities and suggest that self-supervised training on explanations of how the answer to a given mathematical question was derived can improve mathematics in language models. We also suggest a new loss for utilization of the explanations. As a benchmark for measuring mathematical skills, we use AQuA-RAT. AQuA-RAT is a data set with math word problems in the form of a closed test. Each data point consists of a question, possible answers, and the information which answer is correct. What's specific to AQuA-RAT is that it is augmented by a rationale - an explanation of how the solution was derived. We use that for self-supervised training, and
 
@@ -78,14 +80,14 @@
 
 						</p>
 
-						<img src="images/results.png" style="width: 30%;  min-width: 350px" class="centered" title="results">
+						<img src="images/results.png" style="width: 350px; max-width: 100%" class="centered" title="results">
 						<p>
 							You could, however, argue (and rightfully so) that the improvement in BERT-AQuA-RAT in comparison to BERT-AQuA doesn't necessarily have to be caused by some intrinsic quality of rationales for training. BERT-AQuA-RAT simply has access to more data than BERT-AQUA because it has access to the same questions with the addition of the rationale.						</p>
 						<p>
 							We measured that question with rationale has around 3 times more tokens than just question alone. Therefore, to make a fair comparison between the two models, we have to make samples with 3 times more rows for training without rationale than for training with rationale - that will create a similar number of tokens for self-supervised training in both scenarios. We compared them in setups with increasing numbers of tokens available for pretraining. We found that in this setup too, rationales improve the results outperform BERT-AQuA showing that rationale tokens were utilized much better than question tokens and that they indeed are qualitatively better for learning mathematical skills.
 						</p>
 						<figure class="centered" style="max-width: 100%; text-align:center" title="aqua-rat">
-							<img src='images/AQuA-vs-NROP.jpg' class="centered" style="width: 40%;  min-width: 350px" title="aqua-vs-nrop">
+							<img src='images/AQuA-vs-NROP.jpg' class="centered" style="width: 350px;  max-width: 100%" title="aqua-vs-nrop">
 							<figcaption class="centered" style="text-align:center; max-width: 60%">Comparison of methods with rationales and without rationales after discounting the number of questions for method with rationales to make similar number of tokens available for training. Results show that rationales create better representations for mathematical tasks.</figcaption>
 						</figure>
 
@@ -107,12 +109,12 @@
 							Therefore the random chance in this experiment is lower than one-tenth of a percentile.
 							In this test, our model solved three times as many questions as BERT.
 						</p>
-						<img src="images/perm_def.png" style="width:47%;  min-width: 350px" class="centered" title="permutation consistency test definition">
+						<img src="images/perm_def.png" style="width:400px;  max-width: 100%" class="centered" title="permutation consistency test definition">
 						<p>We found that in most of the questions solved by BERT answer was either round or in another way different than the other candidates. We did not find a similar pattern in questions solved by BERT-NROP.
 
 						<p>Results of the permutation consistency test suggest that models also rely strongly on the order of the answers. Names presented here are our models that rely on permutation invariant losses. Their goal is to increase the score on the permutation invariant test while keeping the original test score at a good level. You can find more details about them in the paper.</p>
 
-						<img src="images/perm_results.png" style="width:25%;  min-width: 350px" class="centered"  title="permutation consistency test results">
+						<img src="images/perm_results.png" style="width:350px; max-width: 100%" class="centered"  title="permutation consistency test results">
 
 						<p>  To better understand the models' performance, we check which questions are difficult for the model. We categorize questions by their difficulty for BERT-NROP and BERT. To estimate a question's difficulty, we have ranked the candidate answers according to the model's uncertainties. For instance, if the correct answer has the second-largest probability, we assign to that question difficulty two. With that method, we group questions into five difficulty categories.
 						Manual inspection shows that for BERT+NROP, these groups show somewhat expected patterns ranging from single operations to number theory problems or those that require additional knowledge.
